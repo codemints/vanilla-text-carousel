@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+
+.text-carousel--inner {
+  display: inline-block;
+  vertical-align: top;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: #4d4d4d;
+}
+
+[data-rotate] {
+  position: relative;
+}
+
+[data-rotate="word"] {
+  margin-left: 15px;
+}
+
+[data-rotate="letter"] {
+  margin-left: 5px;
+}
+
+.word {
+  position: absolute;
+  opacity: 0;
+}
+
+[data-rotate="word"] .word {
+  color: white;
+}
+
+.word.active {
+  opacity: 1;
+}
+
+[data-rotate="word"] .word:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 100%;
+  background-color: var(--carousel-color);
+  left: -7.5%;
+  top: 0;
+  z-index: -1;
+  transition: width 0.25s ease-in-out;
+}
+
+[data-rotate="word"] .word.active:after {
+  width: 115%;
+}
+
+[data-rotate="letter"] .word {
+  color: var(--carousel-color);
+}

@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.rotating-text {
+  position: relative;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+.text-container {
+  display: inline-block;
+  vertical-align: top;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: #4d4d4d;
+}
+
+.text-container:nth-child(2) {
+  position: relative;
+  margin-left: 20px;
+}
+
+.word {
+  position: absolute;
+  /* transform: translateY(-100%); */
+  opacity: 0;
+  /* transition: all 0.25s ease-in-out; */
+}
+
+.word:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 100%;
+  background-color: var(--bg-color);
+  left: -7.5%;
+  top: 0;
+  z-index: -1;
+  transition: width 0.25s ease-in-out;
+}
+
+.word.in {
+  opacity: 1;
+  /* transform: translateY(0); */
+}
+
+.word.in:after {
+  width: 115%;
+}
+
+.word.out {
+  /* transform: translateY(100%); */
+}
+
+.word.next {
+  /* transform: translateY(-100%); */
+}
